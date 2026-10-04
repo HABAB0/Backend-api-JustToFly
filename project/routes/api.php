@@ -16,4 +16,6 @@ Route::middleware(['throttle:api'])->group(function (){
 
 Route::middleware(['throttle:api', 'auth:sanctum'])->group(function () {
     Route::get('logout',[ \App\Http\Controllers\Api\AuthController::class, 'logout']);
+    Route::get('profile',[ \App\Http\Controllers\Api\ProfileController::class, 'profile']);
+    Route::put('profile/update',[ \App\Http\Controllers\Api\ProfileController::class, 'update']);
 });
