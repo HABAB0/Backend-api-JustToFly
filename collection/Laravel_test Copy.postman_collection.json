@@ -64,13 +64,12 @@
               "raw": "{\r\n    \"title\": \"6767\",\r\n    \"content\": \"six-seven\",\r\n    \"category_id\": 2\r\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/api/v1/login",
+              "raw": "{{BASE_URL}}/api/login",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "api",
-                "v1",
                 "login"
               ]
             }
@@ -101,13 +100,12 @@
               "raw": "{\r\n    \"title\": \"6767\",\r\n    \"content\": \"six-seven\",\r\n    \"category_id\": 2\r\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/api/v1/logout",
+              "raw": "{{BASE_URL}}/api/logout",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "api",
-                "v1",
                 "logout"
               ]
             }

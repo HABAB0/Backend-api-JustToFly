@@ -9,7 +9,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::middleware(['throttle:api'])->group(function (){
-    Route::post('register',[ \App\Http\Controllers\Api\AuthController::class, 'register']);
+    Route::post('signup',[ \App\Http\Controllers\Api\AuthController::class, 'signup']);
 
     Route::post('login',[ \App\Http\Controllers\Api\AuthController::class, 'login']);
 });
