@@ -25,7 +25,7 @@ class StoreUserRequests extends FormRequest
         return [
             'fio' => ['required', 'string', 'max:255'],
             'email' => ['unique:users','required', 'email', 'max:255'],
-            'password' => ['required'],
+            'password' => ['required', 'min:6'],
         ];
     }
 }

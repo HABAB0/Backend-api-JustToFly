@@ -12,12 +12,9 @@ class ProfileController
     /**
      * Display the specified resource.
      */
-    public function profile(Request $request)
+    public function profile(User $user)
     {
-
-        return response()->json([
-            'user' => $request->user(),
-        ]);
+        return new ProfileResource($user);
     }
 
     /**
@@ -25,10 +22,11 @@ class ProfileController
      */
     public function update(UpdateProfileRequests $request)
     {
-        $data = $request->only(['fio', 'email', 'password']);
+        $data = $request->validated();
         $request->user()->update($data);
-
-        return response()->json($request->user());
+        return response()->json([
+            "message" => "data updated successfully"
+        ], 200);
     }
 
 }

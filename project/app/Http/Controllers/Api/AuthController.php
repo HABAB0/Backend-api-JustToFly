@@ -12,9 +12,7 @@ class AuthController
 {
     public function signup(StoreUserRequests $requests)
     {
-        $user = User::create($requests->all());
-
-        $user->tokens()->delete();
+        $user = User::create($requests->validated());
 
         $token = $user->createToken("Token of user: {$user->fio}")->plainTextToken;
 

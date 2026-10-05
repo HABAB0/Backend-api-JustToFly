@@ -25,7 +25,7 @@ class UpdateProfileRequests extends FormRequest
         return [
             'fio' => ['sometimes', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $this->user()->id],
-            'password' => ['nullable'],
+            'password' => ['nullable', 'min:6'],
         ];
     }
 }
