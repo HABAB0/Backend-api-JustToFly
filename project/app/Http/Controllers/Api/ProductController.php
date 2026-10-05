@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\StoreProductsRequests;
 use App\Http\Requests\UpdateProductRequests;
 use App\Http\Resources\ProductsResource;
-use App\Models\Products;
+use App\Models\Product;
 
-class ProductsController
+class ProductController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return ProductsResource::collection(Products::all());
+        return ProductsResource::collection(Product::all());
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductsController
     public function store(StoreProductsRequests $request)
     {
 
-        $product = Products::create($request->validated());
+        $product = Product::create($request->validated());
         return response()->json([
             'id' => $product->id,
             'message' => "Product added",
@@ -33,7 +33,7 @@ class ProductsController
     /**
      * Display the specified resource.
      */
-    public function show(Products $product)
+    public function show(Product $product)
     {
         return new ProductsResource($product);
     }
@@ -41,7 +41,7 @@ class ProductsController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequests $request, Products $product)
+    public function update(UpdateProductRequests $request, Product $product)
     {
         $product->update($request->all());
         return new ProductsResource($product);
@@ -50,7 +50,7 @@ class ProductsController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $product)
+    public function destroy(Product $product)
     {
         $product->delete();
         return response()->json([

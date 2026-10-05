@@ -17,7 +17,9 @@ Route::middleware(['throttle:api', 'auth:sanctum'])->group(function () {
     Route::get('logout',[ \App\Http\Controllers\Api\AuthController::class, 'logout']);
     Route::get('profile',[ \App\Http\Controllers\Api\ProfileController::class, 'profile']);
     Route::patch('profile/update',[ \App\Http\Controllers\Api\ProfileController::class, 'update']);
-    Route::get('products',[ \App\Http\Controllers\Api\ProductsController::class, 'index']);
-    Route::get('products',[ \App\Http\Controllers\Api\ProductsController::class, 'index']);
-    Route::apiResource('products', \App\Http\Controllers\Api\ProductsController::class);
+    Route::apiResource('products', \App\Http\Controllers\Api\ProductController::class);
+    Route::apiResource('cart', \App\Http\Controllers\Api\CartController::class);
+    Route::get('cart',[ \App\Http\Controllers\Api\CartController::class, 'index']);
+    Route::post('cart/{product}',[ \App\Http\Controllers\Api\CartController::class, 'store']);
+    Route::delete('cart/{product}',[ \App\Http\Controllers\Api\CartController::class, 'destroy']);
 });
