@@ -26,7 +26,7 @@ class ProfileController
         $request->user()->update($data);
         return response()->json([
             "message" => "data updated successfully"
-        ], 200);
+        ]);
     }
 
 }
