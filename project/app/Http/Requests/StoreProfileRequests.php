@@ -26,6 +26,7 @@ class StoreProfileRequests extends FormRequest
             'fio' => ['required', 'string', 'max:255'],
             'email' => ['unique:users','required', 'email', 'max:255'],
             'password' => ['required', 'min:6'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,jfif,webp'],
         ];
     }
 }

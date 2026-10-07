@@ -152,13 +152,15 @@
               }
             ],
             "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"fio\": \"6767\",\r\n    \"email\": \"oleg667@oleg.oleg\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "2196c863-5c3a-4d2a-a30f-5ffd6f98705a",
+                  "src": "/C:/Users/Ay/Downloads/Мем_ _я съел уран 235_.jfif"
                 }
-              }
+              ]
             },
             "url": {
               "raw": "{{BASE_URL}}/api/profile/update",
