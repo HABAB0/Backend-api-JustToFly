@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\UpdateProfileRequests;
 use App\Http\Resources\ProfileResource;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController
@@ -12,8 +11,9 @@ class ProfileController
     /**
      * Display the specified resource.
      */
-    public function profile(User $user)
+    public function profile(Request $request)
     {
+        $user = $request->user();
         return new ProfileResource($user);
     }
 
