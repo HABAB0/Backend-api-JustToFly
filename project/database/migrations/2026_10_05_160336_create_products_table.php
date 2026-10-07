@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('description');
-            $table->integer('price');
+            $table->decimal('order_price', 10, 2);
         });
     }
 
