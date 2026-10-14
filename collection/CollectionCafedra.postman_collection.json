@@ -61,7 +61,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"title\": \"6767\",\r\n    \"content\": \"six-seven\",\r\n    \"category_id\": 2\r\n}"
+              "raw": "{\r\n    \"email\": \"admin@flight.ru\",\r\n    \"password\": \"QWEasd123\"\r\n}"
             },
             "url": {
               "raw": "{{BASE_URL}}/api/login",
