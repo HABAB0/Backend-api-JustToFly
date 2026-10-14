@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: /Dockerfile
-    container_name: cafedra_app
+    container_name: app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -13,19 +13,16 @@ services:
     command: php artisan serve --host=0.0.0.0 --port=8000
     environment:
       - DB_HOST=db
-      - DB_PORT=3306
+      - DB_PORT=8001
       - DB_DATABASE=laravel
       - DB_USERNAME=laravel
       - DB_PASSWORD=secret
-    networks:
-      - cafedra_net
     depends_on:
-      db:
-        condition: service_healthy
+      - db
 
   db:
     image: mysql:8.0
-    container_name: cafedra_db
+    container_name: db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -33,34 +30,22 @@ services:
       MYSQL_USER: laravel
       MYSQL_PASSWORD: secret
     ports:
-      - "3307:3306"
+      - "8001:8001"
     volumes:
       - dbdata:/var/lib/mysql
-    networks:
-      - cafedra_net
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-proot"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: cafedra_phpmyadmin
+    container_name: phpmyadmin
     restart: unless-stopped
     ports:
       - "8080:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: randomPassword
     depends_on:
       - db
-    networks:
-      - cafedra_net
-
-networks:
-  cafedra_net:
-    driver: bridge
 
 volumes:
   dbdata:

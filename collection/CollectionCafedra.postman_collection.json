@@ -175,6 +175,57 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "avatar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "2196c863-5c3a-4d2a-a30f-5ffd6f98705a",
+                  "src": "/C:/Users/Ay/Downloads/Мем_ _я съел уран 235_.jfif"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/profile/avatar",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "api",
+                "profile",
+                "avatar"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
